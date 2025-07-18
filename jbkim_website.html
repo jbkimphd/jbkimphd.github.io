@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. J.B. Kim - Assistant Professor of Information & Technology Management</title>
+    <meta name="description" content="Dr. J.B. Kim, Assistant Professor at University of Tampa, specializing in Information Systems, Business Analytics, and IT Strategy">
+    <meta name="keywords" content="J.B. Kim, Information Systems, Business Analytics, IT Strategy, University of Tampa, Research, Academia">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-section {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-content h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-content .title {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 25px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .research-card {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateX(5px);
+        }
+
+        .research-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-card {
+            background: rgba(118, 75, 162, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .teaching-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .teaching-item {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid #667eea;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .profile-image {
+                margin: 0 auto;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .glass-card {
+                padding: 20px;
+            }
+            
+            .profile-content h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="glass-card">
+            <div class="profile-section">
+                <div class="profile-image">
+                    JBK
+                </div>
+                <div class="profile-content">
+                    <h1>Dr. J.B. (Joo Baek) Kim</h1>
+                    <p class="title">Assistant Professor of Information & Technology Management</p>
+                    <p class="title">John H. Sykes College of Business, University of Tampa</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <nav class="navigation">
+                <a href="#" class="nav-link active" onclick="showSection('about')">About</a>
+                <a href="#" class="nav-link" onclick="showSection('research')">Research</a>
+                <a href="#" class="nav-link" onclick="showSection('teaching')">Teaching</a>
+                <a href="#" class="nav-link" onclick="showSection('publications')">Publications</a>
+                <a href="#" class="nav-link" onclick="showSection('contact')">Contact</a>
+            </nav>
+
+            <div id="about" class="content-section active">
+                <h2>About Me</h2>
+                <p>Greetings! My name is J.B. (Joo Baek) Kim, and I am an Assistant Professor of Information & Technology Management at the John H. Sykes College of Business, University of Tampa, located in Tampa, Florida. Before joining UT, I was a faculty member at the Worcester Polytechnic Institute (WPI) in Worcester, Massachusetts.</p>
+                
+                <p>I earned a Ph.D. degree in Information Systems & Decision Science from Louisiana State University. I also hold master's degrees in Business Administration (with a concentration in Operations Management) from Seoul National University, in Manufacturing Management from Pennsylvania State University, and in Information Systems from the University of Arkansas. Prior to entering academia, I worked at the Samsung Economic Research Institute (SERI) and the Korea Information Society Development Institute (KISDI) in South Korea.</p>
+                
+                <p>My research interests are focused on the pragmatic use of qualitative/quantitative research methods to examine and effectively use information systems and technology to improve society. Specifically, I am interested in exploring the areas of IT strategy in organizations, the role of IT in business transformation, the use of serious games in business education, gamification in business processes, and organizational technology adoption. With my research, I aim to find practical solutions that help organizations leverage technology to achieve their goals.</p>
+            </div>
+
+            <div id="research" class="content-section">
+                <h2>Research Interests</h2>
+                <p>My research focuses on the pragmatic application of information systems and technology to improve organizational effectiveness and societal outcomes. I employ both qualitative and quantitative research methods to address complex business and technology challenges.</p>
+                
+                <div class="research-areas">
+                    <div class="research-card">
+                        <h3>IT Strategy in Organizations</h3>
+                        <p>Examining how organizations can effectively align their IT strategy with business objectives to achieve competitive advantage.</p>
+                    </div>
+                    <div class="research-card">
+                        <h3>Business Transformation</h3>
+                        <p>Investigating the role of information technology in enabling and supporting organizational transformation initiatives.</p>
+                    </div>
+                    <div class="research-card">
+                        <h3>Serious Games in Education</h3>
+                        <p>Exploring the application of serious games and gamification techniques in business education and training contexts.</p>
+                    </div>
+                    <div class="research-card">
+                        <h3>Gamification in Business</h3>
+                        <p>Studying how gamification principles can be applied to business processes to improve engagement and performance.</p>
+                    </div>
+                    <div class="research-card">
+                        <h3>Technology Adoption</h3>
+                        <p>Analyzing factors that influence organizational technology adoption and implementation success.</p>
+                    </div>
+                    <div class="research-card">
+                        <h3>Research Methods</h3>
+                        <p>Developing and applying innovative qualitative and quantitative research methodologies in information systems research.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="teaching" class="content-section">
+                <h2>Teaching Interests</h2>
+                <p>I specialize in courses that bridge technology and business, helping students understand how to effectively leverage information systems and data analytics to drive organizational success.</p>
+                
+                <div class="teaching-list">
+                    <div class="teaching-item">
+                        <h3>Management of Information Systems</h3>
+                        <p>Strategic planning and management of organizational information systems</p>
+                    </div>
+                    <div class="teaching-item">
+                        <h3>Business Analytics</h3>
+                        <p>Applied analytics for business decision-making and performance improvement</p>
+                    </div>
+                    <div class="teaching-item">
+                        <h3>Data Mining</h3>
+                        <p>Techniques and applications of data mining in business contexts</p>
+                    </div>
+                    <div class="teaching-item">
+                        <h3>Innovation Management</h3>
+                        <p>Managing technological innovation and organizational change</p>
+                    </div>
+                    <div class="teaching-item">
+                        <h3>Research Methods</h3>
+                        <p>Quantitative and qualitative research methods in information systems</p>
+                    </div>
+                    <div class="teaching-item">
+                        <h3>Database Management</h3>
+                        <p>Design, implementation, and management of database systems</p>
+                    </div>
+                    <div class="teaching-item">
+                        <h3>Gamification in Business</h3>
+                        <p>Application of game design principles to business processes</p>
+                    </div>
+                    <div class="teaching-item">
+                        <h3>Business Statistics</h3>
+                        <p>Statistical analysis and interpretation for business applications</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="publications" class="content-section">
+                <h2>Publications & Research</h2>
+                <p>My research has been published in various academic journals and presented at international conferences. I focus on practical applications of information systems research that can benefit organizations and society.</p>
+                
+                <div class="research-card">
+                    <h3>Current Research Projects</h3>
+                    <p>Details about ongoing research projects and collaborations will be updated regularly. Please check back for the latest updates on my research activities.</p>
+                </div>
+                
+                <div class="research-card">
+                    <h3>Academic Profiles</h3>
+                    <p>For a complete list of my publications and research activities, please visit my profiles on:</p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Google Scholar</li>
+                        <li>ResearchGate</li>
+                        <li>ORCID</li>
+                        <li>Academia.edu</li>
+                    </ul>
+                </div>
+                
+                <a href="#" class="btn">Download CV</a>
+            </div>
+
+            <div id="contact" class="content-section">
+                <h2>Contact Information</h2>
+                <p>I welcome collaboration opportunities, research discussions, and student inquiries. Please feel free to reach out using the contact information below.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Office Location</h3>
+                        <p>John H. Sykes College of Business<br>
+                        University of Tampa<br>
+                        Tampa, Florida</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <p>jkim@ut.edu<br>
+                        (Please include "Academic Inquiry" in subject line)</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Office Hours</h3>
+                        <p>By appointment<br>
+                        Please email to schedule a meeting</p>
+                    </div>
+                </div>
+                
+                <div class="research-card" style="margin-top: 30px;">
+                    <h3>Research Collaboration</h3>
+                    <p>I am always interested in collaborating on research projects related to information systems, business analytics, and technology adoption. If you have ideas for collaboration or would like to discuss potential research opportunities, please don't hesitate to contact me.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Dr. J.B. Kim. All rights reserved. | University of Tampa | John H. Sykes College of Business</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked nav link
+            event.target.classList.add('active');
+        }
+        
+        // Add smooth scrolling and interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
